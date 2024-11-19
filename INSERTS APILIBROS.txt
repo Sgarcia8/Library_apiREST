@@ -1,0 +1,85 @@
+INSERT INTO autors (nombre, pais_origen) VALUES ('Gabriel García Márquez', 'Colombia');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Isabel Allende', 'Chile');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Jorge Luis Borges', 'Argentina');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Mario Vargas Llosa', 'Perú');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Octavio Paz', 'México');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Laura Esquivel', 'México');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Pablo Neruda', 'Chile');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Julio Cortázar', 'Argentina');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Gabriela Mistral', 'Chile');
+INSERT INTO autors (nombre, pais_origen) VALUES ('Carlos Fuentes', 'México');
+
+
+
+
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('fantasia', 'Libros de fantasía');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('ciencia ficción', 'Libros de ciencia ficción y futuros imaginados');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('novela histórica', 'Libros que exploran eventos históricos');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('romance', 'Libros de romance y relaciones amorosas');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('misterio', 'Libros de misterio y suspenso');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('biografía', 'Libros que narran la vida de personas importantes');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('autoayuda', 'Libros de desarrollo personal y motivación');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('aventura', 'Libros de aventuras y exploraciones emocionantes');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('poesía', 'Libros de poesía y versos');
+INSERT INTO categorias (nombre_categoria, descripcion) VALUES ('drama', 'Libros con temas intensos y emocionales');
+
+
+
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo1@gmail.com', True, 'Pedro Garcia', 333444, '$2a$12$WOEz2mGIRZU4Nj7Wp8XTPewYVHOMGCybEoy/.AuKscnb5/v43Coje', 'ADMIN');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo2@gmail.com', True, 'María López', 444555. '$2a$12$AQHw0s/QudVqY6kRKnO7AeIqj1hbWK9ZQGHASN.Q3tHb16egv6Yki', 'USER');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo3@gmail.com', True, 'Juan Martínez', 555666, '$2a$12$kI6G3G7yx5TRoxyc7Fo2/u8O1VL5kXbg51uFh1dlA3PRfGrLJgj2m', 'USER');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo4@gmail.com', True, 'Ana Torres', 666777, '$2a$12$bb7KTl0VQ215.NvnhGgCQ.4t4qHY7bT77DGd0g3JgJFdACiIQgguy', 'USER');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo5@gmail.com', True, 'Luis Ramírez', 777888, '$2a$12$LIcfSnjAlZQjBnERQW1y/eACjWZAu8zLMKlJwFam4x6H.6fFmLPn2', 'USER');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo6@gmail.com', True, 'Sofía Gómez', 888999, '$2a$12$sk8pjUFf8tFv8WiEwaezIezSgcflKpUbtF7QYheGfq6FT1FRtubwi', 'USER');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo7@gmail.com', True, 'Carlos Méndez', 999000, '$2a$12$3nlQIVqeudaJwN95RYMH.uSCsA8/d9zj8ItgmUrWc0BbNZspE1.Em', 'USER');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo8@gmail.com', True, 'Lucía Herrera', 111222, '$2a$12$Ym1Kb10IlgkMyO.FaIMSYe4sdL46d5JTLd4i1i1ynsDIYwOFCens.', 'USER');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo9@gmail.com', True, 'Miguel Castro', 222333, '$2a$12$nktwS418wjf4.l6kwLOPG.ky20SMUBT6l6XKeGSl0tvqsleX6JREy', 'USER');
+INSERT INTO usuarios (correo, estado_cuenta, nombre, telefono, contrasena, role) VALUES ('ejemplo10@gmail.com', True, 'Elena Díaz', 333444, '$2a$12$Lk1OsN130UzXyN98Cq1B/O5ag33MUBq7pBpoPfEGXUUK1d3Rdm48y', 'ADMIN');
+
+
+
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2024-11-10', '2024-10-10', 1);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2024-12-01', '2024-11-01', 2);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2024-12-15', '2024-11-15', 3);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2024-12-30', '2024-11-30', 4);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-01-05', '2024-12-05', 5);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-01-20', '2024-12-20', 6);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-02-01', '2025-01-01', 7);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-02-15', '2025-01-15', 8);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-03-01', '2025-02-01', 9);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-03-15', '2025-02-15', 10);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2024-12-01', '2024-11-01', 2);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2024-12-15', '2024-11-15', 4);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2024-12-30', '2024-11-30', 4);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-01-05', '2024-12-05', 7);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-01-20', '2024-12-20', 6);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-02-01', '2025-01-01', 7);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-02-15', '2025-01-15', 10);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-03-01', '2025-02-01', 9);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-03-15', '2025-02-15', 10);
+INSERT INTO prestamos (fecha_fin_prestamo, fecha_inicio_prestamos, id_cliente) VALUES ('2025-6-10', '2024-5-10', 10);
+
+
+
+
+
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1990, 'Libro de fantasia', True, 'Nacidos de la bruma', 1, 1);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2001, 'Libro de ciencia ficción', True, 'Dune', 2, 2);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1985, 'Novela histórica ambientada en Roma', True, 'Yo, Claudio', 3, 3);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1999, 'Historia de romance en París', True, 'París era una fiesta', 4, 4);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2005, 'Misterio en un pequeño pueblo', True, 'El código Da Vinci', 5, 5);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2010, 'Biografía de una figura histórica', True, 'Steve Jobs', 6, 6);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2008, 'Libro de autoayuda y motivación', True, 'Los secretos de la mente millonaria', 7, 7);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2015, 'Aventuras en la selva', True, 'El corazón de las tinieblas', 8, 8);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1987, 'Colección de poesía moderna', True, 'Poeta en Nueva York', 9, 9);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1998, 'Obra de drama intenso', True, 'La casa de los espíritus', 10, 10);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2003, 'Fantasía épica con magia y aventura', True, 'El Señor de los Anillos', 1, 1);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2018, 'Novela de ciencia ficción futurista', True, 'Neuromancer', 2, 2);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1974, 'Relato histórico sobre Egipto', True, 'Sinuhé, el egipcio', 3, 3);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1984, 'Historia romántica en la Inglaterra victoriana', True, 'Orgullo y prejuicio', 4, 4);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1992, 'Novela de misterio en Londres', True, 'Sherlock Holmes: El sabueso de los Baskerville', 5, 5);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1991, 'Biografía de un científico famoso', True, 'Einstein: Su vida y universo', 6, 6);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2007, 'Consejos para mejorar la vida', True, 'Cómo ganar amigos e influir sobre las personas', 7, 7);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (2020, 'Aventuras en el espacio exterior', True, 'La guerra de las galaxias', 8, 8);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1983, 'Colección de poesía inspiradora', True, 'Veinte poemas de amor y una canción desesperada', 9, 9);
+INSERT INTO libros (año_publicacion, descripcion, disponibilidad, titulo, id_autor, id_categoria) VALUES (1995, 'Drama en una familia mexicana', True, 'Como agua para chocolate', 10, 10);
