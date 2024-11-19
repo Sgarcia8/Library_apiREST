@@ -164,6 +164,7 @@ api.openLibrary.url=https://openlibrary.org/search.json?title=
 - Para obtener libros desde una API externa, el endpoint /api/libros/public/titulo/{titulo} realiza una búsqueda extendida en caso de no encontrar el libro en la base de datos local.
 - En el proyecto se encuentra en txt con información para llenar la base de datos y probar el código
 - En el txt las contraseñas de los usuarios estan encriptadas con Bcrypt, la contraseña para cada usuario es la siguiente
+  
 | usuario | contraseña    | 
 |--------|----------------|
 | Usuario1  | 12345       | 
