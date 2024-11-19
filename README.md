@@ -15,8 +15,8 @@ Este proyecto es una API REST desarrollada con Spring Boot que permite gestionar
 ## Clonar el Proyecto
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
-cd <NOMBRE_DEL_PROYECTO>
+git clone https://github.com/Sgarcia8/Library_apiREST.git
+cd API
 ```
 
 ## Instalación de Dependencias
@@ -47,7 +47,7 @@ Añade las siguientes dependencias en tu archivo `pom.xml`:
 </dependencies>
 ```
 
-Después de agregar estas dependencias, sincroniza tu proyecto en el IDE.
+Después de agregar estas dependencias, sincroniza tu proyecto en el IDE, si no cuentas con estas dependencias puedes incluirlas en tu IDE usando los .jar que se encuentran en la carpeta libs.
 
 ## Configuración de la Base de Datos
 
@@ -58,6 +58,8 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/nombre_de_tu_base
 spring.datasource.username=usuario
 spring.datasource.password=contraseña
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+api.openLibrary.url=https://openlibrary.org/search.json?title=
 ```
 
 ## Ejecución del Proyecto
@@ -89,7 +91,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
 | Método | Endpoint           | Descripción                                   |
 |--------|--------------------|-----------------------------------------------|
-| POST   | `/api/auth/login`  | Generar un token de autenticación con correo y contraseña. |
+| POST   | `/api/auth/login`  | Generar un token de autenticación usando un correo y contraseña. |
 
 ## Acceso a los Endpoints mediante Postman
 
@@ -112,10 +114,57 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
      ```
 
 3. Accede a los endpoints como se describe arriba.
+    1. Creación de libros en el sistema (ADMIN)
+        - **URL**: `http://localhost:8080//api/libros/admin`
+        - **Método**: POST
+        - **Body** (raw JSON):
+        ```json
+         {
+            "titulo": "Dune 3",
+            "añoPublicacion": 2020,
+            "disponibilidad": true,
+            "descripcion": "Libro de ciencia ficción",
+            "librosPrestado": [],
+            "autor": {
+                "idAutor": 2
+            },
+            "categoria": {
+                "idCategoria": 2
+            }
+        }
+        ```
+    2. Modificación de libros en el sistema (ADMIN)
+        - **URL**: `http://localhost:8080//api/libros/admin`
+        - **Método**: POST
+        - **Body** (raw JSON):
+        ```json
+         {
+            "idLibro": 2,
+            "titulo": "Dune 3",
+            "añoPublicacion": 2020,
+            "disponibilidad": true,
+            "descripcion": "Libro de ciencia ficción",
+            "librosPrestado": [],
+            "autor": {
+                "idAutor": 2
+            },
+            "categoria": {
+                "idCategoria": 2
+            }
+        }
+        ```
+    3. El resto de endpoints no necesitan un body
 
 ## Notas
 
-- Requiere Java 17 o superior.
+- Requiere Java 21 o superior.
 - Asegúrate de que PostgreSQL esté en ejecución.
+- Este proyecto utiliza controladores para diferenciar claramente entre las operaciones públicas y las restringidas.
+- Es importante configurar correctamente los roles y permisos en Spring Security para garantizar que los endpoints restringidos solo sean accesibles por administradores.
+- Para obtener libros desde una API externa, el endpoint /api/libros/public/titulo/{titulo} realiza una búsqueda extendida en caso de no encontrar el libro en la base de datos local.
+- En el proyecto se encuentra en txt con información para llenar la base de datos y probar el código
 
-¡Listo para probar!
+---
+
+Cualquier pregunta o sugerencia, no dudes en contactarme. ¡Gracias por utilizar esta API! 🚀
+
