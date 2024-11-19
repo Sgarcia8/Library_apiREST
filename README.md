@@ -163,6 +163,19 @@ api.openLibrary.url=https://openlibrary.org/search.json?title=
 - Es importante configurar correctamente los roles y permisos en Spring Security para garantizar que los endpoints restringidos solo sean accesibles por administradores.
 - Para obtener libros desde una API externa, el endpoint /api/libros/public/titulo/{titulo} realiza una búsqueda extendida en caso de no encontrar el libro en la base de datos local.
 - En el proyecto se encuentra en txt con información para llenar la base de datos y probar el código
+- En el txt las contraseñas de los usuarios estan encriptadas con Bcrypt, la contraseña para cada usuario es la siguiente
+| usuario | contraseña    | 
+|--------|----------------|
+| Usuario1  | 12345       | 
+| Usuario2  | 1234        |
+| Usuario3  | 123         | 
+| Usuario4  | 12          |
+| Usuario5  | 1           |
+| Usuario6  | 123456      |
+| Usuario7  | 1234567     |
+| Usuario8  | 12345678    |
+| Usuario9  | 123456789   |
+| Usuario10 | 12345678910 |
 
 ---
 
