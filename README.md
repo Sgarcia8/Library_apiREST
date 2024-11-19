@@ -1,139 +1,121 @@
-# Library_apiREST
-Proyecto: API REST para Gestión de Libros
+# API REST para Gestión de Libros
 
-Este proyecto es una API REST desarrollada en Spring Boot que permite la gestión de libros, utilizando PostgreSQL como motor de base de datos y Spring Security con JWT (JSON Web Tokens) para la seguridad de acceso a los endpoints.
+## Descripción del Proyecto
 
----
+Este proyecto es una API REST desarrollada con Spring Boot que permite gestionar libros, autores y categorías. La API incorpora autenticación y autorización utilizando Java Security y JWT. Además, se utiliza PostgreSQL como base de datos relacional.
 
-## Tecnologías utilizadas
+## Tecnologías Usadas
 
-- Spring Boot: Framework principal para la creación del API REST.
-- Spring Security: Proporciona seguridad a los endpoints mediante autenticación y autorización con JWT.
-- PostgreSQL: Motor de base de datos para almacenar la información.
-- JWT: Manejados mediante librerías externas para generar y validar tokens de acceso.
+- **Spring Boot**: Framework principal para construir la API REST.
+- **Spring Security**: Implementación de seguridad en endpoints.
+- **JWT**: Para autenticación y manejo de sesiones seguras.
+- **PostgreSQL**: Motor de base de datos.
+- **Postman**: Para pruebas de los endpoints.
 
----
+## Clonar el Proyecto
 
-## Instalación de dependencias para JWT
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_PROYECTO>
+```
 
-Para manejar JWT, se han utilizado tres extensiones que deben agregarse al proyecto. Estas se pueden instalar añadiendo las siguientes dependencias al archivo pom.xml:
+## Instalación de Dependencias
 
-<dependency>
-    <groupId>io.jsonwebtoken</groupId>
-    <artifactId>jjwt-api</artifactId>
-    <version>0.12.5</version>
-</dependency>
-<dependency>
-    <groupId>io.jsonwebtoken</groupId>
-    <artifactId>jjwt-impl</artifactId>
-    <version>0.12.5</version>
-</dependency>
-<dependency>
-    <groupId>io.jsonwebtoken</groupId>
-    <artifactId>jjwt-jackson</artifactId>
-    <version>0.12.5</version>
-</dependency>
+Asegúrate de tener un IDE como IntelliJ IDEA o Eclipse configurado con soporte para Maven y Java.
 
-Asegúrate de actualizar el proyecto en tu IDE (por ejemplo, IntelliJ IDEA o Eclipse) para descargar las dependencias.
+### Configuración de las librerías para JWT
 
----
+Añade las siguientes dependencias en tu archivo `pom.xml`:
 
-## Endpoints del API
+```xml
+<dependencies>
+    <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-api</artifactId>
+        <version>0.12.5</version>
+    </dependency>
+    <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-impl</artifactId>
+        <version>0.12.5</version>
+    </dependency>
+    <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-jackson</artifactId>
+        <version>0.12.5</version>
+    </dependency>
+</dependencies>
+```
 
-### AuthController
-Manejo de autenticación con JWT.
+Después de agregar estas dependencias, sincroniza tu proyecto en el IDE.
 
-- POST /api/auth/login
-    - Descripción: Endpoint para autenticar usuarios y obtener un token JWT.
-    - Parámetros: 
-      {
-        "correo": "user@example.com",
-        "contrasena": "password123"
-      }
-    - Respuesta exitosa:
-      {
-        "token": "JWT_TOKEN_GENERADO"
-      }
+## Configuración de la Base de Datos
 
----
+Configura las credenciales de PostgreSQL en el archivo `application.properties` o `application.yml`:
 
-### LibroController
-Gestión de libros en el sistema.
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/nombre_de_tu_base
+spring.datasource.username=usuario
+spring.datasource.password=contraseña
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+```
 
-- POST /api/libros/admin
-    - Descripción: Crea un nuevo libro (Acceso restringido a administradores).
-    - Cuerpo de solicitud:
-      {
-        "titulo": "Nombre del libro",
-        "autorId": 1,
-        "categoriaId": 2
-      }
+## Ejecución del Proyecto
 
-- GET /api/libros/public
-    - Descripción: Obtiene la lista de todos los libros (Acceso público).
+1. Ejecuta la aplicación desde tu IDE o usando Maven:
 
-- GET /api/libros/public/{id}
-    - Descripción: Obtiene los detalles de un libro por su ID (Acceso público).
+   ```bash
+   ./mvnw spring-boot:run
+   ```
 
-- GET /api/libros/public/titulo/{titulo}
-    - Descripción: Busca un libro por su título. Si no existe en la base de datos, busca en una API externa.
+2. La API estará disponible en: `http://localhost:8080`.
 
-- GET /api/libros/public/autor/{id}
-    - Descripción: Obtiene libros por ID de autor (Acceso público).
+## Endpoints Disponibles
 
-- GET /api/libros/public/categoria/{id}
-    - Descripción: Obtiene libros por ID de categoría (Acceso público).
+### Endpoints de Libros (`/api/libros`)
 
-- POST /api/libros/admin/actualizar/{id}
-    - Descripción: Actualiza la información de un libro existente (Acceso restringido a administradores).
-    - Cuerpo de solicitud:
-      {
-        "titulo": "Nuevo título",
-        "autorId": 1,
-        "categoriaId": 3
-      }
+| Método | Endpoint                              | Descripción                                        | Roles      |
+|--------|---------------------------------------|----------------------------------------------------|------------|
+| POST   | `/api/libros/admin`                   | Crear un libro.                                   | Admin      |
+| GET    | `/api/libros/public`                  | Obtener todos los libros.                         | Público    |
+| GET    | `/api/libros/public/{id}`             | Obtener un libro por ID.                          | Público    |
+| GET    | `/api/libros/public/titulo/{titulo}`  | Buscar libro por título (o desde API externa).    | Público    |
+| GET    | `/api/libros/public/autor/{id}`       | Obtener libros por autor.                         | Público    |
+| GET    | `/api/libros/public/categoria/{id}`   | Obtener libros por categoría.                     | Público    |
+| POST   | `/api/libros/admin/actualizar/{id}`   | Actualizar un libro existente.                    | Admin      |
+| DELETE | `/api/libros/admin/{id}`              | Eliminar un libro.                                | Admin      |
 
-- DELETE /api/libros/admin/{id}
-    - Descripción: Elimina un libro por su ID (Acceso restringido a administradores).
+### Endpoints de Autenticación (`/api/auth`)
 
----
+| Método | Endpoint           | Descripción                                   |
+|--------|--------------------|-----------------------------------------------|
+| POST   | `/api/auth/login`  | Generar un token de autenticación con correo y contraseña. |
 
-## Cómo clonar y ejecutar este proyecto
+## Acceso a los Endpoints mediante Postman
 
-1. Clonar el repositorio:
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   cd tu-repositorio
+1. Genera un token JWT en el endpoint de login:
+   - **URL**: `http://localhost:8080/api/auth/login`
+   - **Método**: POST
+   - **Body** (raw JSON):
+     ```json
+     {
+       "correo": "tu_correo@example.com",
+       "contrasena": "tu_contraseña"
+     }
+     ```
 
-2. Configurar la base de datos:
-   - Asegúrate de tener PostgreSQL instalado y en ejecución.
-   - Crea una base de datos llamada library_db.
-   - Actualiza las credenciales en el archivo application.properties o application.yml:
-     spring.datasource.url=jdbc:postgresql://localhost:5432/library_db
-     spring.datasource.username=tu_usuario
-     spring.datasource.password=tu_contraseña
+2. Copia el token generado y úsalo en las solicitudes protegidas:
+   - En Postman, añade un encabezado:
+     ```
+     Key: Authorization
+     Value: Bearer <TU_TOKEN>
+     ```
 
-3. Ejecutar la aplicación:
-   - Con Maven:
-     mvn spring-boot:run
-   - O con tu IDE ejecutando la clase principal LibraryApplication.
+3. Accede a los endpoints como se describe arriba.
 
-4. Probar los endpoints en Postman:
-   - Autenticación:
-     1. Haz una solicitud POST al endpoint /api/auth/login con los datos del usuario.
-     2. Copia el token obtenido en la respuesta.
-   - Acceso a endpoints protegidos:
-     - Agrega el token al encabezado de tus solicitudes:
-       Authorization: Bearer JWT_TOKEN
-   - Realiza las solicitudes según los endpoints descritos anteriormente.
+## Notas
 
----
+- Requiere Java 17 o superior.
+- Asegúrate de que PostgreSQL esté en ejecución.
 
-## Notas adicionales
-
-- Este proyecto utiliza controladores para diferenciar claramente entre las operaciones públicas y las restringidas.
-- Es importante configurar correctamente los roles y permisos en Spring Security para garantizar que los endpoints restringidos solo sean accesibles por administradores.
-- Para obtener libros desde una API externa, el endpoint /api/libros/public/titulo/{titulo} realiza una búsqueda extendida en caso de no encontrar el libro en la base de datos local.
-
----
-
-Cualquier pregunta o sugerencia, no dudes en contactarme. ¡Gracias por utilizar esta API! 🚀
+¡Listo para probar!
